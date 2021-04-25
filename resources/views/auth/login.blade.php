@@ -34,6 +34,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
+<<<<<<< HEAD
         <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
     </div>
 
@@ -47,7 +48,7 @@
             <form method="post" action="{{ url('/login') }}">
                 @csrf
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="email"
                            name="email"
                            value="{{ old('email') }}"
@@ -61,7 +62,7 @@
                     @enderror
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="password"
                            name="password"
                            placeholder="Password"
@@ -110,5 +111,77 @@
         integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
         crossorigin="anonymous"></script>
 
+=======
+        <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
+    </div>
+
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">@lang('auth.login.title')</p>
+
+        <form method="post" action="{{ url('/login') }}">
+            @csrf
+
+            <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
+                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="@lang('auth.email')">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+                @endif
+            </div>
+
+            <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
+                <input type="password" class="form-control" placeholder="@lang('auth.password')" name="password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+                @endif
+
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox" name="remember"> @lang('auth.remember_me')
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('auth.sign_in')</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+
+        <a href="{{ url('/password/reset') }}">@lang('auth.login.forgot_password')</a><br>
+        <a href="{{ url('/register') }}" class="text-center">@lang('auth.login.register_membership')</a>
+
+    </div>
+    <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
+>>>>>>> 2ee2dbdc3880a5857786bf3c9f6685271d6c0a53
 </body>
 </html>

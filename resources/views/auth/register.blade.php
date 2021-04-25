@@ -33,6 +33,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
+<<<<<<< HEAD
         <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
     </div>
 
@@ -43,7 +44,7 @@
             <form method="post" action="{{ route('register') }}">
                 @csrf
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="text"
                            name="name"
                            class="form-control @error('name') is-invalid @enderror"
@@ -57,7 +58,7 @@
                     @enderror
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="email"
                            name="email"
                            value="{{ old('email') }}"
@@ -71,7 +72,7 @@
                     @enderror
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="password"
                            name="password"
                            class="form-control @error('password') is-invalid @enderror"
@@ -84,7 +85,7 @@
                     @enderror
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="password"
                            name="password_confirmation"
                            class="form-control"
@@ -116,14 +117,107 @@
         <!-- /.form-box -->
     </div><!-- /.card -->
 
+=======
+        <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
+    </div>
+
+    <div class="register-box-body">
+        <p class="login-box-msg">@lang('auth.registration.title')</p>
+
+        <form method="post" action="{{ url('/register') }}">
+            @csrf
+
+            <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
+                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="@lang('auth.full_name')">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+
+                @if ($errors->has('name'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
+                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="@lang('auth.email')">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
+                <input type="password" class="form-control" name="password" placeholder="@lang('auth.password')">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+                @if ($errors->has('password'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group has-feedback{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="@lang('auth.confirm_password')">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+
+                @if ($errors->has('password_confirmation'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="checkbox icheck">
+                        <label>
+                            <input type="checkbox"> @lang('auth.registration.i_agree') <a href="#">@lang('auth.registration.terms')</a>
+                        </label>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('auth.register')</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+
+        <a href="{{ url('/login') }}" class="text-center">@lang('auth.registration.have_membership')</a>
+    </div>
+>>>>>>> 2ee2dbdc3880a5857786bf3c9f6685271d6c0a53
     <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
 
+<<<<<<< HEAD
 <!-- AdminLTE App -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"
         integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
         crossorigin="anonymous"></script>
 
+=======
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/js/adminlte.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+    });
+</script>
+>>>>>>> 2ee2dbdc3880a5857786bf3c9f6685271d6c0a53
 </body>
 </html>

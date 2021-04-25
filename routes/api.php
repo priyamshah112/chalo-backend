@@ -20,11 +20,10 @@ use App\Http\Controllers\Api\AuthController;
 // });
 
 Route::group(['prefix' => 'v1'], function () {
-    
+
     /**
      * Unauthenticated APIs
      */
-
     Route::post('login', [AuthController::class,'login']);
     Route::post('register',[AuthController::class,'register']);
     Route::post('send-otp', 'Api\AuthController@sendOtp');
@@ -33,7 +32,6 @@ Route::group(['prefix' => 'v1'], function () {
      * Authenticated APIs
      */
     Route::group(['middleware' => ['auth:api', 'cors']],function () {
-
         Route::get('/', function(){ return "Welcome to chalo app api !!"; });
         Route::get('/logout',[AuthController::class,'logout']);
 

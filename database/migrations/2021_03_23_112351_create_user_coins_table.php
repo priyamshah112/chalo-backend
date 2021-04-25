@@ -4,8 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocationTable extends Migration
+class CreateUserCoinsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -13,13 +14,14 @@ class CreateLocationTable extends Migration
      */
     public function up()
     {
-        Schema::create('location', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id')->index();
+        Schema::create('user_coins', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->integer('coins')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->decimal('latitude', 10, 8);
-            $table->decimal('longitude', 11, 8);
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +32,6 @@ class CreateLocationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('location');
+        Schema::drop('user_coins');
     }
 }

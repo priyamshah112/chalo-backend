@@ -46,7 +46,7 @@
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="email"
                            name="email"
                            value="{{ $email ?? old('email') }}"
@@ -60,7 +60,7 @@
                     @enderror
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="password"
                            name="password"
                            class="form-control @error('password') is-invalid @enderror"
@@ -73,7 +73,7 @@
                     @enderror
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="mb-3 input-group">
                     <input type="password"
                            name="password_confirmation"
                            class="form-control"

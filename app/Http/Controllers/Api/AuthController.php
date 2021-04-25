@@ -13,7 +13,7 @@ use Illuminate\Support\Carbon;
 class AuthController extends Controller
 {
     use ApiResponser;
-    
+
     public function login(Request $request)
     {
         $rules = [
@@ -36,6 +36,7 @@ class AuthController extends Controller
                 )->toDateTimeString(),
                 'user'               => $user,
             ], Response::HTTP_OK);
+            
         }
 
         return $this->errorResponse(['message' => "User details incorrect"], 404);
